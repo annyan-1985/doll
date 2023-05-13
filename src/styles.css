@@ -1,5 +1,21 @@
-.doll-image {
-  width: 50vw; /* Set the width to 50% of the viewport width */
-  max-width: 50%; /* Set the maximum width to 50% of the parent container width */
-  max-height: 50%;
+.image-stack-container {
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+.image-stack-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.image-stack-image-first {
+  z-index: 1;
+}
+
+.image-stack-image-second {
+  z-index: 2;
 }

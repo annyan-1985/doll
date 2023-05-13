@@ -18,11 +18,19 @@ function App() {
 }
 
 function Doll({ selectedClothing }) {
-  const dollImageSrc = "doll.jpg";
-
   return (
     <div className="doll-container">
-      <img className="doll-image" src={dollImageSrc} alt="Doll" />
+      <div className="image-stack-container">
+        <img
+          className="image-stack-image image-stack-image-first"
+          src="doll.jpg"
+        />
+        <img
+          className="image-stack-image image-stack-image-second"
+          src="hair.png"
+        />
+      </div>
+
       {selectedClothing && (
         <span className="selected-clothing">({selectedClothing})</span>
       )}
