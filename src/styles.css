@@ -1,0 +1,5 @@
+.doll-image {
+  width: 50vw; /* Set the width to 50% of the viewport width */
+  max-width: 50%; /* Set the maximum width to 50% of the parent container width */
+  max-height: 50%;
+}
