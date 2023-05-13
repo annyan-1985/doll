@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./styles.css"; // Import the CSS file
+import ItemSet from "./ItemSet";
 
 function App() {
   const [selectedClothing, setSelectedClothing] = useState(null);
@@ -7,12 +8,21 @@ function App() {
   const handleClothingClick = (clothing) => {
     setSelectedClothing(clothing);
   };
+  const items = [
+    { id: 1, name: "hair1", url: "hair1.png" },
+    { id: 2, name: "hair2", url: "hair2.png" },
+    { id: 3, name: "hair3", url: "hair3.png" },
+  ];
 
   return (
     <div>
       <Doll selectedClothing={selectedClothing} />
-      <ClothList handleClothingClick={handleClothingClick} />
       <SelectedClothing clothing={selectedClothing} />
+      <ItemSet
+        settype="hair"
+        items={items}
+        handleitemclick={handleClothingClick}
+      />
     </div>
   );
 }
@@ -27,7 +37,7 @@ function Doll({ selectedClothing }) {
         />
         <img
           className="image-stack-image image-stack-image-second"
-          src="hair.png"
+          src={selectedClothing}
         />
       </div>
 
@@ -38,33 +48,6 @@ function Doll({ selectedClothing }) {
   );
 }
 
-function ClothList({ handleClothingClick }) {
-  const items = [
-    { id: 1, name: "Uniform1", description: "This is item 1." },
-    { id: 2, name: "Uniform2", description: "This is item 2." },
-    { id: 3, name: "Uniform3", description: "This is item 3." },
-  ];
-
-  const handleButtonClick = (name) => {
-    handleClothingClick(name);
-  };
-
-  return (
-    <div>
-      {items.map((item) => (
-        <div key={item.id}>
-          <button
-            dangerouslySetInnerHTML={{ __html: item.name }}
-            onClick={() => handleButtonClick(item.name)}
-          />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function SelectedClothing({ clothing }) {
-  return <div>Selected Clothing: {clothing}</div>;
-}
+function SelectedClothing({ clothing }) {}
 
 export default App;
