@@ -15,7 +15,7 @@ function App() {
   ];
 
   return (
-    <div>
+    <div className="app-container">
       <Doll selectedClothing={selectedClothing} />
       <SelectedClothing clothing={selectedClothing} />
       <ItemSet

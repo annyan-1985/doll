@@ -17,16 +17,18 @@ class ItemSet extends React.Component {
     this.state.selected = url;
   };
 
+  // Generator an item list
   render() {
     return (
-      <div>
+      <div className="scroll-list">
         {this.state.items.map((item) => (
-          <div key={item.id}>
-            <button
-              dangerouslySetInnerHTML={{ __html: item.name }}
-              onClick={() => this.props.handleitemclick(item.url)}
-            />
-          </div>
+          <img
+            key={item.name}
+            src={item.url}
+            alt="Button"
+            className="image-button"
+            onClick={() => this.props.handleitemclick(item.url)}
+          />
         ))}
       </div>
     );

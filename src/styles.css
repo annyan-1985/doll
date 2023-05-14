@@ -19,3 +19,22 @@
 .image-stack-image-second {
   z-index: 2;
 }
+
+.scroll-list {
+  display: flex;
+  flex-direction: column; /* Set the direction to vertical */
+  width: 100px;
+  height: 500px;
+  overflow-y: scroll;
+}
+
+.item-image-button {
+  width: 10px;
+  height: 10px;
+  margin-bottom: 1px;
+}
+
+.app-container {
+  display: flex; /* Set display to flex for horizontal alignment */
+  align-items: center; /* Center the items vertically */
+}
