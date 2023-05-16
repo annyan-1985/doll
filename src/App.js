@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./styles.css"; // Import the CSS file
 import ItemSet from "./ItemSet";
-import { Layout, Space, FloatButton, Drawer   } from 'antd';
-import { CommentOutlined, CustomerServiceOutlined } from '@ant-design/icons';
+import { Layout, Space, FloatButton, Drawer } from "antd";
+import { CommentOutlined, CustomerServiceOutlined } from "@ant-design/icons";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -25,13 +25,13 @@ function App() {
   ];
   return (
     <Layout>
-      <Header className="app-header">
-        Calendar Next Maker
-      </Header>
-      <Layout style={{
-        height: "80vh",
-        overflowY: "scroll",
-      }}>
+      <Header className="app-header">Calendar Next Maker</Header>
+      <Layout
+        style={{
+          height: "80vh",
+          overflowY: "hidden",
+        }}
+      >
         <Content className="app-content">
           <Doll selectedClothing={selectedClothing} />
           <SelectedClothing clothing={selectedClothing} />
