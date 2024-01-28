@@ -16,13 +16,7 @@ function App() {
   const items = [
     { id: 1, name: "hair1", url: "hair1.png" },
     { id: 2, name: "hair2", url: "hair2.png" },
-    { id: 3, name: "hair3", url: "hair3.png" },
-    { id: 4, name: "hair1", url: "hair1.png" },
-    { id: 5, name: "hair2", url: "hair2.png" },
-    { id: 6, name: "hair3", url: "hair3.png" },
-    { id: 7, name: "hair1", url: "hair1.png" },
-    { id: 8, name: "hair2", url: "hair2.png" },
-    { id: 9, name: "hair3", url: "hair3.png" },
+    { id: 3, name: "hair3", url: "hair3.png" }
   ];
 
     return (
@@ -31,8 +25,6 @@ function App() {
             <Layout style={{ height: "80vh", overflowY: "hidden" }}>
                 <Sider className="app-side">
                     <ItemSet
-                        settype="hair"
-                        items={items}
                         setSelectedClothing={setSelectedClothing}
                     />
                 </Sider>

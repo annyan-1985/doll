@@ -3,16 +3,15 @@ import {Image, List, Tabs} from "antd";
 class Item extends React.Component {
     handleItemClick = () => {
         console.log("handleItemClick clicked");
-        const { item, setSelectedClothing } = this.props;
-        setSelectedClothing(item.url);
+        const { itemKey, setSelectedClothing, currentCategory } = this.props;
+        setSelectedClothing(`${currentCategory}${itemKey}.png`);
     };
 
     render() {
-        const { item } = this.props;
+        const { itemKey, setSelectedClothing, currentCategory } = this.props;
         return (
             <List.Item onClick={this.handleItemClick}>
-                <Image width={100} src={item.url} preview={false} />
-                {item.name}
+                <Image width={100} src={`${currentCategory}${itemKey}.png`} preview={false} />
             </List.Item>
         );
     }

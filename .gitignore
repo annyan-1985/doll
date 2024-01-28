@@ -127,3 +127,12 @@ dist
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/.idea/checkstyle-idea.xml
+/.idea/compiler.xml
+/.idea/sonarlint/issuestore/index.pb
+/.idea/sonarlint/securityhotspotstore/index.pb
+/.idea/jarRepositories.xml
+/.idea/misc.xml
+/.idea/vcs.xml
+/yarn.lock
+/.idea/.gitignore
