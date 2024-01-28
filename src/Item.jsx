@@ -4,7 +4,7 @@ class Item extends React.Component {
     handleItemClick = () => {
         console.log("handleItemClick clicked");
         const { itemKey, setSelectedClothing, currentCategory } = this.props;
-        setSelectedClothing(`${currentCategory}${itemKey}.png`);
+        setSelectedClothing(currentCategory, itemKey);
     };
 
     render() {

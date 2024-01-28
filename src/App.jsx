@@ -5,19 +5,27 @@ import { Layout } from "antd";
 import { graphql, QueryRenderer } from "react-relay";
 import environment from "./RelayEnvironment"; // Import your Relay Environment
 import Doll from "./Doll";
+import Outfit from "./Outfit"
 
 
 const { Header, Content, Sider } = Layout; // Destructure Layout components
 
 function App() {
-  const [selectedClothing, setSelectedClothing] = useState(null);
+    const [selectedClothing, setSelectedClothing] = useState(null);
+    const [outfit, setOutfit] = useState({
+        hair: 1,
+        dress: 1,
+        shoe: 1
+    });
 
-
-  const items = [
-    { id: 1, name: "hair1", url: "hair1.png" },
-    { id: 2, name: "hair2", url: "hair2.png" },
-    { id: 3, name: "hair3", url: "hair3.png" }
-  ];
+    // Function to update a specific item in the outfit
+    const updateOutfitItem = (item, value) => {
+        console.log(`Set outfit ${item}, ${value}`);
+        setOutfit(prevOutfit => ({
+            ...prevOutfit,
+            [item]: value
+        }));
+    };
 
     return (
         <Layout>
@@ -25,15 +33,20 @@ function App() {
             <Layout style={{ height: "80vh", overflowY: "hidden" }}>
                 <Sider className="app-side">
                     <ItemSet
-                        setSelectedClothing={setSelectedClothing}
+                        setSelectedClothing={updateOutfitItem}
                     />
                 </Sider>
                 <Content className="app-content">
-                    <Doll selectedClothing={selectedClothing} />
+                    <div className="doll-container">
+                        <div className="image-stack-container">
+                            <Doll/>
+                            <Outfit userSettings={outfit}/>
+                        </div>
+                    </div>
                 </Content>
             </Layout>
         </Layout>
-    );
+);
 }
 
 export default App;

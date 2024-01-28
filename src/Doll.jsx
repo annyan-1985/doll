@@ -1,19 +1,14 @@
 import React from "react";
 import "./styles.css";
+import Outfit from "./Outfit"
 
-const Doll = ({ selectedClothing }) => {
-    console.log("Clicked clothing:", selectedClothing);
+const Doll = () => {
     return (
-        <div className="doll-container">
-            {selectedClothing && (
-                <div className="image-stack-container">
-                    <img src={selectedClothing} alt="Selected clothing"
-                         className="image-stack-image image-stack-image-second"/>
-                    <img src="doll.jpg" alt="Doll"
-                         className="image-stack-image image-stack-image-first"/> {/* Render doll.png underneath selectedClothing */}
-                </div>
-            )}
-            {!selectedClothing && <p>Please select a clothing item</p>}
+        <div>
+            <img src="doll.jpg" alt="Doll"
+                 className="image-stack-image image-stack-image-first"/>)
+
+
         </div>
     );
 };
