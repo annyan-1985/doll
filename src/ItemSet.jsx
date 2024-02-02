@@ -1,7 +1,6 @@
 import React from "react";
 import Item from "./Item";
-import { List, Tabs } from "antd";
-
+import { List, Tabs } from 'antd';
 
 
 class ItemSet extends React.Component {
@@ -31,24 +30,30 @@ class ItemSet extends React.Component {
             { name: "Shoes" }
         ];
         return (
-            <Tabs tabPosition="left" type="card" centered={true} onChange={this.handleTabChange}>
+            <Tabs
+                tabPosition="left"
+                defaultActiveKey="1"
+                centered={false}
+                onChange={this.handleTabChange}
+            >
                 {categories.map((category, i) => {
                     const id = String(i + 1);
                     return (
                         <Tabs.TabPane key={id} tab={category.name}>
-                            <List
-                                key={id}
-                                grid={{ gutter: 10, column: 1 }}
-                                itemLayout="vertical"
-                                dataSource={[1, 2]}
-                                renderItem={(itemKey) => (
-                                    <Item
-                                        itemKey={itemKey}
-                                        currentCategory={currentCategory}
-                                        setSelectedClothing={setSelectedClothing} // Correct prop name
-                                    />
-                                )}
-                            />
+                                <List
+                                    grid={{ gutter: 10, column: 1 }}
+                                    itemLayout="vertical"
+                                    dataSource={[1, 2]}
+                                    renderItem={(itemKey) => (
+                                        <Item
+                                            key={itemKey}
+                                            itemKey={itemKey}
+                                            currentCategory={currentCategory}
+                                            setSelectedClothing={setSelectedClothing} // Correct prop name
+                                        />
+                                    )}
+                                />
+
                         </Tabs.TabPane>
                     );
                 })}

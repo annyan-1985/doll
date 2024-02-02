@@ -5,10 +5,7 @@ import Outfit from "./Outfit"
 const Doll = () => {
     return (
         <div>
-            <img src="doll.jpg" alt="Doll"
-                 className="image-stack-image image-stack-image-first"/>)
-
-
+            <img src="doll.jpg" alt="Doll" className="image-stack-image image-stack-image-first" />
         </div>
     );
 };

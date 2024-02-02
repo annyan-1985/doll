@@ -28,10 +28,9 @@ function App() {
     };
 
     return (
-        <Layout>
-            <Header className="app-header">Calendar Next Maker</Header>
-            <Layout style={{ height: "80vh", overflowY: "hidden" }}>
-                <Sider className="app-side">
+        <Layout >
+            <Layout >
+                <Sider>
                     <ItemSet
                         setSelectedClothing={updateOutfitItem}
                     />

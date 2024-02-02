@@ -5,7 +5,6 @@ const Outfit = ({ userSettings }) => {
 
     return (
         <div className="looks">
-            <h2>Outfit</h2>
             <div className="outfit-items">
                 <div>
                     <img src={`dress${userSettings.dress}.png`} alt="Selected clothing"
