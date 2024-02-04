@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles.css";
-import {Card, Tabs} from 'antd';
+import {List, Card, Tabs} from 'antd';
 import {useState, useRef, useEffect} from 'react';
 
 import Doll from "./Doll"
@@ -41,32 +41,35 @@ const DayPicker = ({ initialSelectedIndex }) => {
             }
         });
     }, [selectedDayIndex]);
+    const cardWidth = 200; // Fixed width for each card
+    const totalWidth = daysOfWeek.length * cardWidth; // Total width of the list
 
     return (
-        <div>
-            <Tabs activeKey={selectedDayIndex} onChange={handleTabChange} tabBarStyle={{marginBottom: 16}}>
-                {daysOfWeek.map((day, index)=> (
-                    <TabPane tab={day} key={index}/>
-                ))}
-            </Tabs>
-            <div ref={scrollRef} style={{overflowX: 'auto', whiteSpace: 'nowrap'}}>
-                {daysOfWeek.map((day, index) => (
-                    <Card className="day-card"
-                        key={index}
-                        id={index}
-                        hoverable
-                        style={{
-                            width: 200,
-                            height: 400,
-                            display: 'inline-block',
-                            margin: '0 10px',
-                        }}
-                        cover={<Doll/>}
-                    >
-                        <Meta title={day}/>
-                    </Card>
-                ))}
-            </div>
+        <div style={{ overflowX: 'auto' }}>
+            <List
+                grid={{ gutter: 16, column: daysOfWeek.length, direction: 'horizontal' }} // Adjusted grid with direction set to horizontal
+                dataSource={daysOfWeek}
+                style={{ width: totalWidth}}
+                renderItem={(item, index) => (
+                    <List.Item key={index}>
+                        <Card className="day-card"
+                              key={index}
+                              id={index}
+                              hoverable
+                              style={{
+                                  width: 200, // Adjust the width based on the number of columns
+                                  height: 400,
+                                  display: 'inline-block',
+                                  margin: '0 10px',
+                              }}
+                              cover={<Doll/>}
+                              onClick={() => setSelectedDayIndex(index)}
+                        >
+                            <Meta title={item}/>
+                        </Card>
+                    </List.Item>
+                )}
+            />
         </div>
     );
 
