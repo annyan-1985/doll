@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
 const Outfit = ({ userSettings }) => {
-
-
     return (
         <div className="looks">
             <div className="outfit-items">

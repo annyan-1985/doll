@@ -10,13 +10,14 @@ import Outfit from "./Outfit"
 
 const { Header, Content, Sider } = Layout; // Destructure Layout components
 
-const Day = ()=>{
+const Day = ({updateOutfitForDay})=>{
     const [selectedClothing, setSelectedClothing] = useState(null);
     const [outfit, setOutfit] = useState({
         hair: 1,
         dress: 1,
         shoe: 1
     });
+
 
     // Function to update a specific item in the outfit
     const updateOutfitItem = (item, value) => {
@@ -25,7 +26,9 @@ const Day = ()=>{
             ...prevOutfit,
             [item]: value
         }));
+        updateOutfitForDay(outfit)
     };
+
 
     return (
         <Layout >
