@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css"; // Import the CSS file
 import ItemSet from "./ItemSet";
 import { Layout } from "antd";
@@ -10,25 +10,17 @@ import Outfit from "./Outfit"
 
 const { Header, Content, Sider } = Layout; // Destructure Layout components
 
-const Day = ({updateOutfitForDay})=>{
-    const [selectedClothing, setSelectedClothing] = useState(null);
-    const [outfit, setOutfit] = useState({
-        hair: 1,
-        dress: 1,
-        shoe: 1
-    });
-
+const Day = ({outfit, updateOutfit})=>{
+    //const [selectedClothing, setSelectedClothing] = useState(null);
 
     // Function to update a specific item in the outfit
     const updateOutfitItem = (item, value) => {
         console.log(`Set outfit ${item}, ${value}`);
-        setOutfit(prevOutfit => ({
-            ...prevOutfit,
+        updateOutfit({
+            ...outfit,
             [item]: value
-        }));
-        updateOutfitForDay(outfit)
+        })
     };
-
 
     return (
         <Layout >

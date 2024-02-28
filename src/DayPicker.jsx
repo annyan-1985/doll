@@ -13,24 +13,25 @@ const {Meta} = Card;
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 
-const DayPicker = ({ initialSelectedIndex, updateSelectedDay, userSettings }) => {
+const DayPicker = ({ initialSelectedDay, updateSelectedDay, userSettings }) => {
 
-    const [selectedDayIndex, setSelectedDayIndex] = useState(initialSelectedIndex);
+    const [selectedDay, setSelectedDay] = useState(initialSelectedDay);
     const scrollRef = useRef(null);
 
 
     useEffect(() => {
         // Update border styling after selectedDayIndex changes
         console.log("Card Color changed")
-        const cards = document.querySelectorAll('.day-card');
-        cards.forEach((card, index) => {
-            if (index == selectedDayIndex) {
-                card.style.border = '2px solid #1677ff';
-            } else {
-                card.style.border = 'none';
-            }
-        });
-    }, [selectedDayIndex]);
+        // const cards = document.querySelectorAll('.day-card');
+        // cards.forEach((card, index) => {
+        //     if (index == selectedDayIndex) {
+        //         card.style.border = 
+        //     } else {
+        //         card.style.border = 'none';
+        //     }
+        // });
+        updateSelectedDay(selectedDay)
+    }, [selectedDay]);
     const cardWidth = 200; // Fixed width for each card
     const totalWidth = daysOfWeek.length * cardWidth; // Total width of the list
     const handleDrag = (event, data) => {
@@ -57,12 +58,13 @@ const DayPicker = ({ initialSelectedIndex, updateSelectedDay, userSettings }) =>
                                       height: 400,
                                       display: 'inline-block',
                                       margin: '0 10px',
+                                      border: selectedDay === item ? '2px solid #1677ff' : 'none',
                                   }}
                                   cover={<div>
                                       <Doll/>
-
+                                      <Outfit userSettings={userSettings[item]}/>
                                   </div>}
-                                  onClick={() => setSelectedDayIndex(index)}
+                                  onClick={() => setSelectedDay(item)}
                             >
                                 <Meta title={item}/>
                             </Card>
